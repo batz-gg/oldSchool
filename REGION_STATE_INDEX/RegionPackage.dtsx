@@ -1,0 +1,374 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/28/2022 2:28:21 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-2TPDP0U"
+  DTS:CreatorName="DESKTOP-2TPDP0U\OptiPlex7050"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{E66300BD-07E6-4104-93F1-918E37A9BE91}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.168"
+  DTS:LocaleID="1104"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="RegionPackage"
+  DTS:VersionGUID="{E98CB069-FA84-488F-9798-A288B53CD443}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionExcel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{2C435950-A971-4B10-A9D0-83731BBB9CF0}"
+      DTS:ObjectName="DestinationConnectionExcel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\OptiPlex7050\Desktop\REGION_STATE_INDEX\RegionDB.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionExcel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{9FE3611E-CB9F-4666-9114-697BE5E0C0FD}"
+      DTS:ObjectName="SourceConnectionExcel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\OptiPlex7050\Desktop\REGION_STATE_INDEX\RegionDB.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{07B35202-EAD9-44AD-B4FE-767A642A2B4A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Destination - RegionMGL$"
+              componentClassID="Microsoft.ExcelDestination"
+              contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Excel Destination"
+              name="Destination - RegionMGL$"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">RegionMGL$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - RegionMGL$.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionExcel]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionExcel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - RegionMGL$.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - RegionMGL$.Inputs[Destination Input].Columns[Reg_ID]"
+                      cachedDataType="r8"
+                      cachedName="Reg_ID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - RegionMGL$.Inputs[Destination Input].ExternalColumns[Reg_ID]"
+                      lineageId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].Columns[Reg_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - RegionMGL$.Inputs[Destination Input].Columns[Province_Capital]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Province_Capital"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - RegionMGL$.Inputs[Destination Input].ExternalColumns[Province_Capital]"
+                      lineageId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].Columns[Province_Capital]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - RegionMGL$.Inputs[Destination Input].Columns[SubProvince_District]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SubProvince_District"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - RegionMGL$.Inputs[Destination Input].ExternalColumns[SubProvince_District]"
+                      lineageId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].Columns[SubProvince_District]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - RegionMGL$.Inputs[Destination Input].Columns[Team_MicroDistrict]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Team_MicroDistrict"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - RegionMGL$.Inputs[Destination Input].ExternalColumns[Team_MicroDistrict]"
+                      lineageId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].Columns[Team_MicroDistrict]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - RegionMGL$.Inputs[Destination Input].ExternalColumns[Reg_ID]"
+                      dataType="r8"
+                      name="Reg_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - RegionMGL$.Inputs[Destination Input].ExternalColumns[Province_Capital]"
+                      dataType="wstr"
+                      length="255"
+                      name="Province_Capital" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - RegionMGL$.Inputs[Destination Input].ExternalColumns[SubProvince_District]"
+                      dataType="wstr"
+                      length="255"
+                      name="SubProvince_District" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - RegionMGL$.Inputs[Destination Input].ExternalColumns[Team_MicroDistrict]"
+                      dataType="wstr"
+                      length="255"
+                      name="Team_MicroDistrict" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - RegionMGL$.Outputs[Excel Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Excel Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - RegionMGL$.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - RegionMGL$.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - RegionMGL$.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - RegionMGL$.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - RegionMGL$.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - RegionMGL$"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Source - RegionMGL$"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">RegionMGL$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - RegionMGL$.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionExcel]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionExcel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].Columns[Reg_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].ExternalColumns[Reg_ID]"
+                      lineageId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].Columns[Reg_ID]"
+                      name="Reg_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].Columns[Province_Capital]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].ExternalColumns[Province_Capital]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].Columns[Province_Capital]"
+                      name="Province_Capital"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].Columns[SubProvince_District]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].ExternalColumns[SubProvince_District]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].Columns[SubProvince_District]"
+                      name="SubProvince_District"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].Columns[Team_MicroDistrict]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].ExternalColumns[Team_MicroDistrict]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].Columns[Team_MicroDistrict]"
+                      name="Team_MicroDistrict"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].ExternalColumns[Reg_ID]"
+                      dataType="r8"
+                      name="Reg_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].ExternalColumns[Province_Capital]"
+                      dataType="wstr"
+                      length="255"
+                      name="Province_Capital" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].ExternalColumns[SubProvince_District]"
+                      dataType="wstr"
+                      length="255"
+                      name="SubProvince_District" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output].ExternalColumns[Team_MicroDistrict]"
+                      dataType="wstr"
+                      length="255"
+                      name="Team_MicroDistrict" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Error Output].Columns[Reg_ID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Error Output].Columns[Reg_ID]"
+                      name="Reg_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Error Output].Columns[Province_Capital]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Error Output].Columns[Province_Capital]"
+                      name="Province_Capital" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Error Output].Columns[SubProvince_District]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Error Output].Columns[SubProvince_District]"
+                      name="SubProvince_District" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Error Output].Columns[Team_MicroDistrict]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Error Output].Columns[Team_MicroDistrict]"
+                      name="Team_MicroDistrict" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[Excel Source Output]"
+              endId="Package\Data Flow Task 1\Destination - RegionMGL$.Inputs[Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task 1\Source - RegionMGL$.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+</DTS:Executable>

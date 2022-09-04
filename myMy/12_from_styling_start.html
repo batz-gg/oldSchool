@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Styling</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #344a72;
+            color: #fff;
+            line-height: 1.8;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #container {
+            margin: 50px auto;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        .form-wrap {
+            background: white;
+            padding: 15px 15px;
+            color: #333;
+        }
+
+        .form-wrap h1, .form-wrap p {
+            text-align: center;
+        }
+
+        .form-wrap .form-group {
+            margin-top: 15px;
+        }
+
+        .form-wrap .form-group label {
+            display: block;
+        }
+
+        .form-wrap .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: #ddd 1px solid;
+            border-radius: 5px;
+        }
+
+        .form-wrap button {
+            display: block;
+            width: 100%;
+            background: #49c1a2;
+            padding: 10px;
+            margin-top: 20px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .form-wrap button:hover {
+            background: #37a08e;
+        }
+
+        .form-wrap .bottom-text {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+
+        footer a {
+            color: #49c1a2;
+        }
+        
+        .login {
+            margin-top: 10px;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .login a{
+            color: #49c1a2
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="form-wrap">
+            <h1>Бүртгүүлэх</h1>
+            <p>Бүртгэл үнэ төлбөргүй</p>
+            <form>
+                <div class="form-group">
+                    <label for="first-name">Таны нэр</label>
+                    <input type="text" name="firstName" id="first-name" />
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Таны овог</label>
+                    <input type="text" name="lastName" id="last-Name" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Таны и-мэйл</label>
+                    <input type="email" name="email" id="email" />
+                </div>
+                <div class="form-group">
+                    <label for="first-name">Нууц үгээ бичнэ үү</label>
+                    <input type="password" name="password" id="password" />
+                </div>
+                <div class="form-group">
+                    <label for="first-name">Нууц үгээ давтан бичнэ үү</label>
+                    <input type="password" name="repPassword" id="rep-password" />
+                </div>
+            </form>
+            <button class="button-text" href="#" a="target=_blank">Бүртгүүлэх</button>
+            <footer class="bottom-text">Бүртгүүлэх товчлуурыг дарснаар та манай <a href="#" target="_blank">Гэрээний нөхцлүүд</a>-ийг зөвшөөрсөн болно.
+            </footer>
+        </div>
+        <p class="login">Өмнө бүртгүүлсэн бол <a href="#" target="_blank">Нэвтрэх</a></p>
+    </div>
+
+</body>
+</html>
