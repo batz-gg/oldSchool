@@ -1,0 +1,45 @@
+/******************** THE DROP ***************/
+.drop {
+  margin: 0 auto;
+  position: relative;
+  height: 200px;
+  width: 200px;
+  background: #56abfb;
+
+  border-radius: 51% 49% 48% 52% / 62% 44% 56% 38%;
+  /* . Due to my minimal knowledge of CSS i was wondering how the hell did he make the shape. Further deconstruction led me to realize that the shape is manipulated with the border radius property. I was familiar with border radius but I was consfused when i observed 8 values. 
+  
+        After some research and testing Ive come to learn that; when using border radius 4 values count for each corner of the square/rectangle equally. Adding a / and proceeding with 4 more values count towards one side of each 4 corners. example the values in  "border-radius: 51% 49% 48% 52%' count for the top left corner, top right corner, bottom right corner, and bottom left corner, respectively. adding the '/62% 44% 56% 38%' counts for the top left LEFT, top right RIGHT, bottom right RIGHT and bottom left LEFT.  So basically your manipulating both sides of a specific corner. */
+  opacity: 0.8;
+  border: 2px solid #3d93ff;
+}
+
+/************ THE SHADOW ********************/
+.drop::before {
+  content: "";
+  /*  So essentially when styling content that doesnt exist one needs to use (content: '') */
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #318cfe;
+  border-radius: 51% 49% 48% 52%/ 62% 44% 56% 38%;
+  box-shadow: -20px 30px 16px #1b6cfb, -40px 60px 32px #1b6cfb,
+    inset -6px 6px 10px #1b6cfb, inset 2px 6px 10px #1a74e5,
+    inset 20px -20px 22px white, inset 40px -40px 44px #a8ceff;
+}
+
+/********** DROP LIGHT REFLECTION ************/
+.drop::after {
+  content: "";
+  position: absolute;
+  left: 130px;
+  top: 40px;
+  height: 40px;
+  width: 40px;
+  background: #e6fdfb;
+  border-radius: 44% 56% 46% 54% / 36% 50% 50% 64%;
+
+  /* Basically create a small square and position it right then shape it using the border radius property. Manipulate the box shadow to get the second light reflection */
+  box-shadow: 16px 40px 0 -10px white;
+  opacity: 0.8;
+}
